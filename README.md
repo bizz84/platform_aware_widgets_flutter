@@ -2,7 +2,7 @@
 
 Example project showing how to create platform-aware widget classes in Flutter.
 
-[![](screenshots/Poster-platform-aware-widgets.png)]()
+[![](screenshots/Poster-platform-aware-widgets.png)](https://youtu.be/0q2beiiXD98)
 
 ## Rationale
 
