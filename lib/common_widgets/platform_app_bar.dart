@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_aware_widgets_flutter/common_widgets/platform_widget.dart';
 
-class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> {
+class PlatformAppBar extends PlatformWidget {
   PlatformAppBar({this.leading, this.title, this.actions});
   final Widget leading;
   final Widget title;
   final List<Widget> actions;
 
   @override
-  CupertinoNavigationBar buildCupertinoWidget(BuildContext context) {
+  Widget buildCupertinoWidget(BuildContext context) {
     return CupertinoNavigationBar(
       leading: leading,
       middle: title,
@@ -22,7 +22,7 @@ class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> {
   }
 
   @override
-  AppBar buildMaterialWidget(BuildContext context) {
+  Widget buildMaterialWidget(BuildContext context) {
     return AppBar(
       leading: leading,
       title: title,

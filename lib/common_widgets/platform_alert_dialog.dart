@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_aware_widgets_flutter/common_widgets/platform_widget.dart';
 
-class PlatformAlertDialog extends PlatformWidget<CupertinoAlertDialog, AlertDialog> {
+class PlatformAlertDialog extends PlatformWidget {
   PlatformAlertDialog({
     @required this.title,
     @required this.content,
@@ -21,7 +21,7 @@ class PlatformAlertDialog extends PlatformWidget<CupertinoAlertDialog, AlertDial
   final String confirmText;
 
   @override
-  AlertDialog buildMaterialWidget(BuildContext context) {
+  Widget buildMaterialWidget(BuildContext context) {
     return AlertDialog(
       title: Text(title),
       content: Text(content),
@@ -31,7 +31,7 @@ class PlatformAlertDialog extends PlatformWidget<CupertinoAlertDialog, AlertDial
   }
 
   @override
-  CupertinoAlertDialog buildCupertinoWidget(BuildContext context) {
+  Widget buildCupertinoWidget(BuildContext context) {
     return CupertinoAlertDialog(
       title: Text(title),
       content: Text(content),
@@ -72,7 +72,7 @@ class PlatformAlertDialog extends PlatformWidget<CupertinoAlertDialog, AlertDial
   }
 }
 
-class PlatformAlertDialogAction extends PlatformWidget<CupertinoDialogAction, FlatButton> {
+class PlatformAlertDialogAction extends PlatformWidget {
   PlatformAlertDialogAction({this.child, this.onPressed});
   final Widget child;
   final VoidCallback onPressed;

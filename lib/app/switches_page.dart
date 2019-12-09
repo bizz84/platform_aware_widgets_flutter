@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:platform_aware_widgets_flutter/common_widgets/platform_alert_dialog.dart';
-import 'package:platform_aware_widgets_flutter/common_widgets/platform_switch.dart';
 
 class SwitchesPage extends StatefulWidget {
   @override
@@ -53,32 +52,44 @@ class _SwitchesPageState extends State<SwitchesPage> {
     return Padding(
       padding: const EdgeInsets.all(32.0),
       child: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            buildRow(
-              text: 'Active',
-              child: PlatformSwitch(
-                value: _switchValue,
-                onChanged: (value) => _platformSwitchChanged(context, value),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Active', style: TextStyle(fontSize: 20.0)),
+                Switch.adaptive(
+                  value: _switchValue,
+                  onChanged: (value) => _platformSwitchChanged(context, value),
+                ),
+              ],
             ),
             SizedBox(height: 60.0),
-            buildRow(
-              text: 'Inactive',
-              child: PlatformSwitch(
-                value: true,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Inactive', style: TextStyle(fontSize: 20.0)),
+                Switch.adaptive(
+                  value: true,
+                  onChanged: null,
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget buildRow({String text, Widget child}) {
+class RowWithLabel extends StatelessWidget {
+  const RowWithLabel({Key key, this.text, this.child}) : super(key: key);
+  final String text;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
